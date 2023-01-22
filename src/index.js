@@ -38,20 +38,17 @@ const MORSE_TABLE = {
 };
 
 function decode(expr) {
-  let exprArray = '';
-  let result = [];
-  exprArray = expr
+  const morseArray = expr
     .replaceAll('**********', ' ')
     .replaceAll(/\d{10}/g, '$& ')
     .replaceAll('00', '')
     .replaceAll('10', '.')
     .replaceAll('11', '-');
-  result = exprArray
+  return morseArray
     .split(' ')
     .map((x) => MORSE_TABLE[x] || ' ')
     .join('')
     .trim();
-  return result;
 }
 
 module.exports = {
